@@ -5,7 +5,7 @@ function App() {
   const [timestamp, setTimestamp] = useState("");
 
   useEffect(() => {
-    axios.get("http://18.171.139.248:5000/api/data").then((res) => {
+    axios.get("http://51.24.8.215:5000/api/data").then((res) => {
       setTimestamp(res.data.timestamp);
     });
   }, []);

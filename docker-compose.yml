@@ -11,7 +11,7 @@ services:
       - app-net
 
   backend:
-    image: 037494486042.dkr.ecr.eu-west-2.amazonaws.com/fullstack-backend
+    image: 105417736896.dkr.ecr.eu-west-2.amazonaws.com/fullstack-backend
     environment:
       POSTGRES_PASSWORD: example
     depends_on:
@@ -20,9 +20,14 @@ services:
       - app-net
     deploy:
       replicas: 1
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+        mode: host
 
   frontend:
-    image: 037494486042.dkr.ecr.eu-west-2.amazonaws.com/fullstack-frontend
+    image: 105417736896.dkr.ecr.eu-west-2.amazonaws.com/fullstack-frontend
     networks:
       - app-net
     deploy:
